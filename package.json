@@ -1,0 +1,31 @@
+{
+  "name": "order-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "compile": "./node_modules/.bin/babel src --out-dir lib",
+    "test": "npm run compile && clear && jest --run-in-sync"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OstlerDev/order-bot.git"
+  },
+  "author": "Sky Young <github@skylarostler.com>",
+  "bugs": {
+    "url": "https://github.com/OstlerDev/order-bot/issues"
+  },
+  "homepage": "https://github.com/OstlerDev/order-bot#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0"
+  }
+}

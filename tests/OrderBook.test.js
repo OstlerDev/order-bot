@@ -100,10 +100,55 @@ it("should refuse to sell if the buy price is less than the sell price", () => {
 	my_book.processBuy(new BuyOrder({ prc: 10, qty: 10 }))
 	my_book.processSell(new SellOrder({ prc: 15, qty: 10 }))
 
-	expect(sell_order.canSell(buy_order)).toBe(false)
-
 	expect(my_book.toJSON()).toEqual({
 		"buys": [ { prc: 10, qty: 10 } ],
 		"sells": [ { prc: 15, qty: 10 } ]
 	})
 })
+
+// descending = largest to smallest
+it("should list buys in descending order by price", () => {
+	let my_book = new OrderBook()
+
+	my_book.processBuy(new BuyOrder({ prc: 6, qty: 10 }))
+	my_book.processBuy(new BuyOrder({ prc: 7, qty: 10 }))
+	my_book.processBuy(new BuyOrder({ prc: 8, qty: 10 }))
+	my_book.processBuy(new BuyOrder({ prc: 9, qty: 10 }))
+	my_book.processBuy(new BuyOrder({ prc: 10, qty: 10 }))
+
+	expect(my_book.toJSON()).toEqual({
+		"buys": [
+			{ prc: 10, qty: 10 },
+			{ prc: 9, qty: 10 },
+			{ prc: 8, qty: 10 },
+			{ prc: 7, qty: 10 },
+			{ prc: 6, qty: 10 },
+		],
+		"sells": []
+	})
+})
+
+// ascending = smallest to largest
+it("should list sells in ascending order by price", () => {
+	let my_book = new OrderBook()
+
+	my_book.processSell(new SellOrder({ prc: 10, qty: 10 }))
+	my_book.processSell(new SellOrder({ prc: 9, qty: 10 }))
+	my_book.processSell(new SellOrder({ prc: 8, qty: 10 }))
+	my_book.processSell(new SellOrder({ prc: 7, qty: 10 }))
+	my_book.processSell(new SellOrder({ prc: 6, qty: 10 }))
+
+	expect(my_book.toJSON()).toEqual({
+		"buys": [],
+		"sells": [
+			{ prc: 6, qty: 10 }
+			{ prc: 7, qty: 10 }
+			{ prc: 8, qty: 10 }
+			{ prc: 9, qty: 10 }
+			{ prc: 10, qty: 10 }
+		]
+	})
+})
+
+
+

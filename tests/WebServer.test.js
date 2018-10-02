@@ -108,7 +108,6 @@ it("Must pass Sample Session", async () => {
 
 	for (let query of sample_session){
 		for (let path in query){
-			console.log(path, query[path])
 			if (path === "/buy" || path === "/sell"){
 				let res = await my_axios.post(path, query[path], () => {})
 				expect(res.data).toEqual({success: true})

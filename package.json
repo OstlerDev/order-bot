@@ -8,7 +8,7 @@
   },
   "scripts": {
     "compile": "./node_modules/.bin/babel src --out-dir lib",
-    "test": "npm run compile && clear && jest --run-in-sync"
+    "test": "jest --runInBand"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,10 @@
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
-    "jest": "^23.6.0"
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.12.1"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0"

@@ -15,11 +15,12 @@ To install all the required dependencies for OrderBot, please follow the followi
 1. Clone the repository to your local computer using `git clone https://github.com/OstlerDev/order-bot.git`
 2. `cd` into the folder that was just created by running `cd order-bot`
 3. Install the required dependencies by running `npm install`
+4. Edit `config.json` to set your desired `host` and `port` for the `WebServer` to run on.
 
 ### Running the WebServer
-To startup the REST API server, please run the following command:
+To startup the REST API server, please run `npm start`. 
 
-`npm start`
+Once it has started, you should see a message that says `OrderBot Webserver listening on 0.0.0.0:3000`
 
 ## About the API
 GET `/book`

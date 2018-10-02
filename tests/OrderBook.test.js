@@ -144,10 +144,10 @@ describe("OrderBook should Sort Return Arrays", () => {
 		expect(my_book.toJSON()).toEqual({
 			"buys": [],
 			"sells": [
-				{ prc: 6, qty: 10 }
-				{ prc: 7, qty: 10 }
-				{ prc: 8, qty: 10 }
-				{ prc: 9, qty: 10 }
+				{ prc: 6, qty: 10 },
+				{ prc: 7, qty: 10 },
+				{ prc: 8, qty: 10 },
+				{ prc: 9, qty: 10 },
 				{ prc: 10, qty: 10 }
 			]
 		})

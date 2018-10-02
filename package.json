@@ -8,7 +8,8 @@
   },
   "scripts": {
     "compile": "./node_modules/.bin/babel src --out-dir lib",
-    "test": "jest --verbose"
+    "start": "npm run compile && clear && node lib/index.js",
+    "test": "jest --verbose --runInBand"
   },
   "repository": {
     "type": "git",
@@ -23,12 +24,18 @@
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
+    "axios": "^0.18.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "jest": "^23.6.0",
     "regenerator-runtime": "^0.12.1"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0"
+    "@babel/polyfill": "^7.0.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

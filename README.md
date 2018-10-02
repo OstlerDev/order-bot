@@ -26,21 +26,21 @@ Once it has started, you should see a message that says `OrderBot Webserver list
 GET `/book`
  
 resulting JSON:
-```json
-  {
+```js
+{
     "buys": [ { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }, ... ],
     "sells":[ { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }, ... ]
-  }
+}
 ```
 POST `/buy`
 
 JSON payload format: 
-```json
+```js
 { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }
 ```
  
 POST `/sell`
 JSON payload format: 
-```json
+```js
 { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }
 ```

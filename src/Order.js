@@ -7,9 +7,22 @@ class Order {
 
 		this.price = options.prc
 		this.quantity = options.qty
+
+		this.sales = []
+	}
+	addSale(sale){
+		assert(sale.quantity <= this.getQuantity(), "Sale Quantity must be < or = to the Quantity available on the Order!")
+
+		this.sales.push(sale)
 	}
 	getQuantity(){
-		return this.quantity
+		let quantity = this.quantity
+
+		for (let sale of this.sales){
+			quantity -= sale.quantity
+		}
+
+		return quantity
 	}
 	getPrice(){
 		return this.price
@@ -22,4 +35,4 @@ class Order {
 	}
 }
 
-export default Order;
+export default Order

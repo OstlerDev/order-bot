@@ -1,5 +1,10 @@
+import assert from 'assert'
+
 class Order {
 	constructor(options){
+		assert(!Number.isNaN(options.prc), "`prc` (price) must be a number!")
+		assert(Number.isInteger(options.qty), "`qty` (quantity) must be an integer!")
+
 		this.price = options.prc
 		this.quantity = options.qty
 	}

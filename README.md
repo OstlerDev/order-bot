@@ -22,18 +22,24 @@ To startup the REST API server, please run the following command:
 `npm start`
 
 ## About the API
-GET /book
+GET `/book`
  
-  resulting JSON format:
+resulting JSON:
+```json
   {
     "buys": [ { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }, ... ],
     "sells":[ { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }, ... ]
   }
+```
+POST `/buy`
+
+JSON payload format: 
+```json
+{ "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }
+```
  
-POST /buy
- 
-  JSON payload format: { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }
- 
-POST /sell
- 
-  JSON payload format: { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }
+POST `/sell`
+JSON payload format: 
+```json
+{ "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }
+```

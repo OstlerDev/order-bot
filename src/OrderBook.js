@@ -69,6 +69,18 @@ class OrderBook {
 		sell_order.addSale(sale)
 	}
 	/**
+	 * Remove all orders that have completed fully
+	 */
+	purgeCompletedOrders(){
+		for (let i = this.buy_orders.length - 1; i >= 0; i--)
+			if (this.buy_orders[i].getQuantity() === 0)
+				this.buy_orders.splice(i, 1)
+
+		for (let i = this.sell_orders.length - 1; i >= 0; i--)
+			if (this.sell_orders[i].getQuantity() === 0)
+				this.sell_orders.splice(i, 1)
+	}
+	/**
 	 * Sort the Buy Orders in Descending order (greatest to lowest [2, 1, 0])
 	 */
 	sortBuys(){
@@ -99,6 +111,11 @@ class OrderBook {
 
 		if (buy_order.getQuantity() > 0)
 			this.buy_orders.push(buy_order)
+
+		// Remove completed orders, and re-sort
+		this.purgeCompletedOrders()
+		this.sortBuys()
+		this.sortSells()
 	}
 	/**
 	 * @param  {SellOrder} sell_order - the SellOrder to process
@@ -119,6 +136,11 @@ class OrderBook {
 
 		if (sell_order.getQuantity() > 0)
 			this.sell_orders.push(sell_order)
+
+		// Remove completed orders, and re-sort
+		this.purgeCompletedOrders()
+		this.sortBuys()
+		this.sortSells()
 	}
 
 	}

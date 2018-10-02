@@ -23,23 +23,22 @@ To startup the REST API server, please run `npm start`.
 Once it has started, you should see a message that says `OrderBot Webserver listening on 0.0.0.0:3000`
 
 ## About the API
-GET `/book`
- 
-resulting JSON:
+### GET `/book`
+Resulting JSON:
 ```js
 {
     "buys": [ { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }, ... ],
     "sells":[ { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }, ... ]
 }
 ```
-POST `/buy`
 
+### POST `/buy`
 JSON payload format: 
 ```js
 { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }
 ```
  
-POST `/sell`
+### POST `/sell`
 JSON payload format: 
 ```js
 { "qty":INTEGER_NUMBER, "prc":DECIMAL_NUMBER }

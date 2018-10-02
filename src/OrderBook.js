@@ -142,7 +142,24 @@ class OrderBook {
 		this.sortBuys()
 		this.sortSells()
 	}
+	toJSON(){
+		let state = {
+			buys: [],
+			sells: []
+		}
 
+		// Remove completed orders, and re-sort
+		this.purgeCompletedOrders()
+		this.sortBuys()
+		this.sortSells()
+
+		for (let buy of this.buy_orders)
+			state.buys.push(buy.toJSON())
+
+		for (let sell of this.sell_orders)
+			state.sells.push(sell.toJSON())
+
+		return state
 	}
 }
 
